@@ -1,0 +1,47 @@
+---
+title: "CK Summary"
+author: "Rachel Roggenkemper"
+output: html_document
+date: '2022-07-28'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("~/Documents/FROST-SUMMER-2022")
+
+library(tidyverse)
+library(readxl)  
+CK_Grade_Count <- read_excel("FROST Grading CK Summary.xlsx")
+CK_Grade_Count$CK <- as.factor(CK_Grade_Count$CK)
+CK_Grade_Count$Grade <- as.factor(CK_Grade_Count$Grade)
+```
+
+```{r}
+CK_Grade_Count %>%
+  ggplot(mapping = aes(x = CK, y = Count, fill = Grade)) +
+  geom_col(position = "fill") +
+  ylab("Proportion of Grade Distribution by CK")
+```
+
+```{r}
+CK_Grade_Count %>%
+  ggplot(aes(fill = Grade, y = Count, x = CK)) + 
+  geom_bar(position = "dodge", stat = "identity")
+```
+
+```{r}
+CK_Grade_Count %>%
+  ggplot(aes(fill = Grade, y = Count, x = CK)) + 
+  geom_bar(position = "stack", stat = "identity")
+```
+```
+
+
+
+
+
+
+

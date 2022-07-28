@@ -1,5 +1,5 @@
 ---
-title: "CK5.2_Summary"
+title: "CK5.2 Summary of Score"
 author: "Rachel Roggenkemper"
 output: html_document
 date: '2022-07-27'
