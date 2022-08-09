@@ -1,8 +1,8 @@
 ---
-title: "CK5.2 Summary of Score"
+title: "CK 5.1 Summary of Inital Answers (Winter 2021)"
 author: "Rachel Roggenkemper"
+date: '2022-08-09'
 output: html_document
-date: '2022-07-27'
 ---
 
 ```{r setup, include=FALSE}
@@ -10,18 +10,20 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-setwd("~/Documents/FROST-SUMMER-2022")
+setwd("~/Documents/FROST-SUMMER-2022/Winter2021")
 
 library(tidyverse)
 library(readxl)  
-CK5.1 <- read_excel("FROST Grading CK 5.1_final.xlsx")
+CK5.1 <- read_excel("FROST Grading CK 5.1_final (Winter 2021).xlsx")
 ```
 
 ```{r}
-CK5.1_clean <- drop_na(CK5.1)
-colnames(CK5.1_clean)[4] <- "Q15_1.Grade"
-colnames(CK5.1_clean)[9] <- "Q15_2.Grade"
-CK5.1_clean = subset(CK5.1_clean, select = -c(Student, GroupCK.5.1))
+CK5.1_clean = subset(CK5.1, select = -c(Student:GroupCK.5.1))
+
+CK5.1_clean <- drop_na(CK5.1_clean)
+
+colnames(CK5.1_clean)[2] <- "Q15_1.Grade"
+colnames(CK5.1_clean)[7] <- "Q15_2.Grade"
 ```
 
 ```{r}
@@ -56,7 +58,7 @@ CK5.1_clean %>%
 ```
 
 
-Question 15 (part 1)
+Question 15 (Part 1)
 ```{r}
 CK5.1_clean %>%
   count(Q15_1.Grade)
@@ -95,7 +97,7 @@ CK5.1_clean %>%
 ```
 
 
-Question 9
+Question 9 
 ```{r}
 CK5.1_clean %>%
   count(Q9.Grade)
@@ -121,7 +123,7 @@ CK5.1_clean %>%
 ```
 
 
-Question 15 (part 2)
+Question 15 (Part 2)
 ```{r}
 CK5.1_clean %>%
   count(Q15_2.Grade)
@@ -131,6 +133,19 @@ CK5.1_clean %>%
 CK5.1_clean %>%
   ggplot() +
   geom_bar(aes(x = Q15_2.Grade))
+```
+
+
+Question 17
+```{r}
+CK5.1_clean %>%
+  count(Q17.Grade)
+```
+
+```{r}
+CK5.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q17.Grade))
 ```
 
 
@@ -147,14 +162,4 @@ CK5.1_clean %>%
 ```
 
 
-Question 19
-```{r}
-CK5.1_clean %>%
-  count(Q19.Grade)
-```
 
-```{r}
-CK5.1_clean %>%
-  ggplot() +
-  geom_bar(aes(x = Q19.Grade))
-```
