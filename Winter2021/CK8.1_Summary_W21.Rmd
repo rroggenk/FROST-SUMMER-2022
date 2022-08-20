@@ -1,0 +1,165 @@
+---
+title: "CK 8.1 Summary of Initial Answers (Winter 2021)"
+author: "Rachel Roggenkemper"
+date: '2022-08-19'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("~/Documents/FROST-SUMMER-2022/Winter2021")
+
+library(tidyverse)
+library(readxl)  
+CK8.1 <- read_excel("FROST Grading CK 8.1_final (Winter 2021).xlsx")
+```
+
+```{r}
+CK8.1_clean = subset(CK8.1, select = -c(Student:GroupCK.8.1))
+
+CK8.1_clean <- drop_na(CK8.1_clean)
+```
+
+```{r}
+CK8.1_all <- data.frame(unlist(CK8.1_clean))
+colnames(CK8.1_all)[1] <- "Grades"
+```
+
+
+All Questions 
+```{r}
+CK8.1_all %>%
+  count(Grades)
+```
+
+```{r}
+CK8.1_all %>%
+  ggplot() +
+  geom_bar(aes(x = Grades))
+```
+
+
+Question 4
+```{r}
+CK8.1_clean %>%
+  count(Q4.Grade)
+```
+
+```{r}
+CK8.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q4.Grade))
+```
+
+
+Question 11
+```{r}
+CK8.1_clean %>%
+  count(Q11.Grade)
+```
+
+```{r}
+CK8.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q11.Grade))
+```
+
+
+Question 12
+```{r}
+CK8.1_clean %>%
+  count(Q12.Grade)
+```
+
+```{r}
+CK8.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q12.Grade))
+```
+
+
+Question 13
+```{r}
+CK8.1_clean %>%
+  count(Q13.Grade)
+```
+
+```{r}
+CK8.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q13.Grade))
+```
+
+
+Question 20
+```{r}
+CK8.1_clean$Q20.Grade <- as.factor(CK8.1_clean$Q20.Grade)
+
+CK8.1_clean %>%
+  count(Q20.Grade)
+```
+
+```{r}
+CK8.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q20.Grade))
+```
+
+
+Question 22
+```{r}
+CK8.1_clean %>%
+  count(Q22.Grade)
+```
+
+```{r}
+CK8.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q22.Grade))
+```
+
+
+Question 25
+```{r}
+CK8.1_clean %>%
+  count(Q25.Grade)
+```
+
+```{r}
+CK8.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q25.Grade))
+```
+
+
+Question 33
+```{r}
+CK8.1_clean %>%
+  count(Q33.Grade)
+```
+
+```{r}
+CK8.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q33.Grade))
+```
+
+
+Question 34
+```{r}
+CK8.1_clean %>%
+  count(Q34.Grade)
+```
+
+```{r}
+CK8.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q34.Grade))
+```
+
+
+
+

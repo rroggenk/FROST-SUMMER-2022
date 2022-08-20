@@ -1,0 +1,161 @@
+---
+title: "CK 10.1 Summary of Initial Answers (Winter 2021)"
+author: "Rachel Roggenkemper"
+date: '2022-08-19'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("~/Documents/FROST-SUMMER-2022/Winter2021")
+
+library(tidyverse)
+library(readxl)  
+CK10.1 <- read_excel("FROST Grading CK 10.1_final (Winter 2021).xlsx")
+```
+
+```{r}
+CK10.1_clean = subset(CK10.1, select = -c(Student:GroupCK.10.1))
+
+CK10.1_clean <- drop_na(CK10.1_clean)
+```
+
+```{r}
+CK10.1_all <- data.frame(unlist(CK10.1_clean))
+colnames(CK10.1_all)[1] <- "Grades"
+```
+
+
+All Questions 
+```{r}
+CK10.1_all %>%
+  count(Grades)
+```
+
+```{r}
+CK10.1_all %>%
+  ggplot() +
+  geom_bar(aes(x = Grades))
+```
+
+
+Question 5
+```{r}
+CK10.1_clean %>%
+  count(Q5.Grade)
+```
+
+```{r}
+CK10.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q5.Grade))
+```
+
+
+Question 13
+```{r}
+CK10.1_clean %>%
+  count(Q13.Grade)
+```
+
+```{r}
+CK10.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q13.Grade))
+```
+
+
+Question 14
+```{r}
+CK10.1_clean %>%
+  count(Q14.Grade)
+```
+
+```{r}
+CK10.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q14.Grade))
+```
+
+
+Question 15
+```{r}
+CK10.1_clean %>%
+  count(Q15.Grade)
+```
+
+```{r}
+CK10.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q15.Grade))
+```
+
+
+Question 16
+```{r}
+CK10.1_clean %>%
+  count(Q16.Grade)
+```
+
+```{r}
+CK10.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q16.Grade))
+```
+
+
+Question 17
+```{r}
+CK10.1_clean %>%
+  count(Q17.Grade)
+```
+
+```{r}
+CK10.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q17.Grade))
+```
+
+
+Question 19
+```{r}
+CK10.1_clean %>%
+  count(Q19.Grade)
+```
+
+```{r}
+CK10.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q19.Grade))
+```
+
+
+Question 20
+```{r}
+CK10.1_clean %>%
+  count(Q20.Grade)
+```
+
+```{r}
+CK10.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q20.Grade))
+```
+
+
+Question 23
+```{r}
+CK10.1_clean %>%
+  count(Q23.Grade)
+```
+
+```{r}
+CK10.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q23.Grade))
+```
+
+

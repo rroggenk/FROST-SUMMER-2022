@@ -1,0 +1,153 @@
+---
+title: "CK 9.1 Summary of Initial Answers (Winter 2021)"
+author: "Rachel Roggenkemper"
+date: '2022-08-19'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("~/Documents/FROST-SUMMER-2022/Winter2021")
+
+library(tidyverse)
+library(readxl)  
+CK9.1 <- read_excel("FROST Grading CK 9.1_final (Winter 2021).xlsx")
+```
+
+```{r}
+CK9.1_clean = subset(CK9.1, select = -c(Student:GroupCK.9.1))
+
+CK9.1_clean <- drop_na(CK9.1_clean)
+```
+
+```{r}
+CK9.1_all <- data.frame(unlist(CK9.1_clean))
+colnames(CK9.1_all)[1] <- "Grades"
+```
+
+
+All Questions 
+```{r}
+CK9.1_all %>%
+  count(Grades)
+```
+
+```{r}
+CK9.1_all %>%
+  ggplot() +
+  geom_bar(aes(x = Grades))
+```
+
+
+Question 6
+```{r}
+CK9.1_clean %>%
+  count(Q6.Grade)
+```
+
+```{r}
+CK9.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q6.Grade))
+```
+
+
+Question 9
+```{r}
+CK9.1_clean %>%
+  count(Q9.Grade)
+```
+
+```{r}
+CK9.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q9.Grade))
+```
+
+
+Question 10
+```{r}
+CK9.1_clean %>%
+  count(Q10.Grade)
+```
+
+```{r}
+CK9.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q10.Grade))
+```
+
+
+Question 11
+```{r}
+CK9.1_clean %>%
+  count(Q11.Grade)
+```
+
+```{r}
+CK9.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q11.Grade))
+```
+
+
+Question 12
+```{r}
+CK9.1_clean$Q12.Grade <- as.factor(CK9.1_clean$Q12.Grade)
+
+CK9.1_clean %>%
+  count(Q12.Grade)
+```
+
+```{r}
+CK9.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q12.Grade))
+```
+
+
+Question 13
+```{r}
+CK9.1_clean %>%
+  count(Q13.Grade)
+```
+
+```{r}
+CK9.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q13.Grade))
+```
+
+
+Question 17
+```{r}
+CK9.1_clean %>%
+  count(Q17.Grade)
+```
+
+```{r}
+CK9.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q17.Grade))
+```
+
+
+Question 28
+```{r}
+CK9.1_clean %>%
+  count(Q28.Grade)
+```
+
+```{r}
+CK9.1_clean %>%
+  ggplot() +
+  geom_bar(aes(x = Q28.Grade))
+```
+
+
+
+
+
