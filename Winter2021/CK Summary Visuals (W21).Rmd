@@ -23,7 +23,9 @@ CK_Grade_Count$Grade <- as.factor(CK_Grade_Count$Grade)
 CK_Grade_Count %>%
   ggplot(mapping = aes(x = CK, y = Count, fill = Grade)) +
   geom_col(position = "fill") +
-  ylab("Proportion of Grade Distribution by CK")
+  ylab("Proportions") +
+  labs(title = "Grade Distribution by CK") +
+  theme(plot.title=element_text(hjust=0.5))
 ```
 
 ```{r}
